@@ -18,7 +18,7 @@ export const Navbar = ()=>{
         if(isAuthenticate){
             getUser(token,dispatch);
         }
-    },[])
+    },[]);
     console.log({token,isAuthenticate,username,email,imgurl});
     
     return (
@@ -29,7 +29,7 @@ export const Navbar = ()=>{
             <div onClick={()=>navigate('/login')}>Login</div>
             <div onClick={()=>navigate('/register')}>Signup</div>
             {isAuthenticate?
-            <div onClick={handlelogout}>
+            <div>
             <div className='avtar'>
                 <div className='userDetails'>
                     <div className='subAvtar'>
@@ -38,7 +38,7 @@ export const Navbar = ()=>{
                     </div>
                     <h4>{username}</h4>
                     <p>{email}</p>
-                    <h3>Account Setting</h3>
+                    <h4 onClick={handlelogout}>Logout</h4>
                 </div>
                <img src={imgurl} alt="avtar" />
             </div>
