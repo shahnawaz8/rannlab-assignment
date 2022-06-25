@@ -13,8 +13,8 @@ export const getUser=(token,dispatch)=>{
         }
     })
     .then((res)=>{
-        // console.log('getuse details',res.data.user);
-        dispatch(userSuccess({username:res.data.user.name,email:res.data.user.email}))
+        console.log('getuse details',res);
+        dispatch(userSuccess({username:res.data.user.name,email:res.data.user.email,imgurl:res.data.user.imgurl}))
     })
     .catch((err)=> console.log(err));
 }

@@ -1,7 +1,9 @@
 const initState = 
 {
     username: sessionStorage.getItem("loggedUserName") ||"",
-    email: sessionStorage.getItem("loggedUserEmail") || ""
+    email: sessionStorage.getItem("loggedUserEmail") || "",
+    imgurl: sessionStorage.getItem("loggedUserImgUrl") || "",
+
 }
 
  export  const userReducer  = (state=initState,{type,payload})=>{
@@ -14,7 +16,8 @@ const initState =
             return{
                 ...state,
                 username:payload.username,
-                email:payload.email
+                email:payload.email,
+                imgurl:payload.imgurl
             }
         }
         default:

@@ -7,12 +7,44 @@
 
 }
 .main>div{
-    background-color: grey;
+    background-color: lightgrey;
     width: 100%;
 }
 .main>div:hover{
-    background-color: lightgrey;
+    background-color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;
     font-size: large;
+}
+.avtar{
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin-left: 60%;
+}
+.avtar>img,.subAvtar>img{
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    display: flex;
+    
+}
+.userDetails{
+    border: 1px solid grey;
+    height: 230px;
+    width: 160px;
+    position: absolute;
+    border-radius: 5px;
+    transform: translate(-110px,55px);
+    text-align: center;
+    box-shadow: 0px 0px 10px 1px grey;
+}
+.subAvtar{
+    border: 1px solid lightgrey;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 100px;
 }
