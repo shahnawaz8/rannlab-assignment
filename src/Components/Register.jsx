@@ -1,11 +1,21 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../Redux/Signup/action";
+
 
 export const Register = ()=>{
     const [imgurl,setImgurl] = useState("");
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    
+    const [password_c,setPasswordC] = useState("");
 
+    const{ isSignUpSuccess } = useSelector((store)=>store.signup);
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const handleImageChange = (e)=> {
         let files = e.target.files;
         let reader = new FileReader();
@@ -23,11 +33,18 @@ export const Register = ()=>{
         const userData = {
             name,
             email,
+            imgurl,
             password,
-            imgurl
+            password_confirmation:password_c
         }
          console.log(userData);
+        dispatch(registerUser(userData));
     }
+    console.log("loading",isSignUpSuccess);
+    if(isSignUpSuccess){
+        navigate('/login');
+    }
+    
     return (
         <>
         <h1>Register</h1><br /><br />
@@ -36,6 +53,8 @@ export const Register = ()=>{
         <label> Profile pic</label><br />
         <input type="file" onChange={(e)=>handleImageChange(e)}/><br /><br />
         <input type="password"  placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/><br /><br />
+        <input type="password"  placeholder="Confirm Password" onChange={(e)=>setPasswordC(e.target.value)}/><br /><br />
+
         <button onClick={handleRegister}>Register</button>
         </>
     )

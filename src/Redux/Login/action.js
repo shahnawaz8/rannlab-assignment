@@ -28,7 +28,7 @@ export const login=(payload)=>(dispatch)=>{
     // console.log(payload,'from payload action');
     axios.post(`http://localhost:5000/api/user/login`,payload)
     .then((res)=>{
-        // console.log(res,"action")
+        console.log(res,"action")
         dispatch(loginSuccess({token:res.data.token}))
     })
     .catch((err)=> dispatch(loginFailure()))
