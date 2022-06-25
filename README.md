@@ -5,6 +5,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+# how run backend 
+
+<p>Download the zip file and do <i>cd/backend</i><br>
+<i>npm install</i>
+<i>npm start</i>
+
+</p>
+
+
 
 ### `npm start`
 
